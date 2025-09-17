@@ -273,8 +273,8 @@ class ListeSimpleTest {
         Noeud r = listeATester.tete;
         listeATester.ajout(3);
         listeATester.ajout(2);
-        assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
+        assertEquals("ListeSimple(Noeud(2), Noeud(3), Noeud(5), Noeud(4))", listeATester.toString());
         listeATester.echanger(r, r);
-        assertEquals("ListeSimple(Noeud(4), Noeud(2), Noeud(3), Noeud(1), Noeud(5))", listeATester.toString());
+        assertEquals("ListeSimple(Noeud(2), Noeud(3), Noeud(5), Noeud(4))", listeATester.toString());
     }
 }

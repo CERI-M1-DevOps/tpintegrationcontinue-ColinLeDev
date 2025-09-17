@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  BuildMaven: # Nom du job : Salutations
+  build: # Nom du job : Salutations
    name: "Build and Test with Maven"
    runs-on: ubuntu-latest # OS où s'exécute le job
    steps:

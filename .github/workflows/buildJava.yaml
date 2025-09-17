@@ -26,6 +26,11 @@ jobs:
       run: |
         mvn -B package
 
+    - name: Build and Test with Maven - taken from UdeM-DIRO-IFT3913
+      timeout-minutes: 15
+      run: |
+        mvn -B verify
+
     - name: Sonar cube analysis
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

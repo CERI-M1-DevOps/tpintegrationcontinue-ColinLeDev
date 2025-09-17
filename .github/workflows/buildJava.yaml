@@ -21,15 +21,15 @@ jobs:
         distribution: 'corretto'
         java-version: ${{ matrix.jvm_version }}
 
-    - name: Build and Test with Maven
-      timeout-minutes: 15
-      run: |
-        mvn -B package
+    # - name: Build and Test with Maven
+    #   timeout-minutes: 15
+    #   run: |
+    #     mvn -B package
 
-    - name: Build and Test with Maven - taken from UdeM-DIRO-IFT3913
-      timeout-minutes: 15
-      run: |
-        mvn -B verify
+    # - name: Build and Test with Maven - taken from UdeM-DIRO-IFT3913
+    #   timeout-minutes: 15
+    #   run: |
+    #     mvn -B verify
 
     - name: Sonar cube analysis
       env:

@@ -36,7 +36,12 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=$(echo ${{ github.repository }} | sed 's-/-_-')
-
+    
+    - name: Sonar cube analysis - import jacoco report
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+        mvn -Dsonar.coverage.jacoco.xmlReportPaths=../app-it/target/site/jacoco-aggregate/jacoco.xml org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Pcoverage
 # UdeM-DIRO-IFT3913
     # - name: Get JaCoCo Coverage
     #   id: coverage  

@@ -1,4 +1,4 @@
-name: Java CI with Maven - Test and package
+name: Création et déploiement de la documentation
  
 on:
   # push: # Techniquement, les seuls push sur main sont via PR

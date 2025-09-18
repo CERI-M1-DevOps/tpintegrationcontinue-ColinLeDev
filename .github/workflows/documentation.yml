@@ -1,0 +1,36 @@
+name: Java CI with Maven - Test and package
+ 
+on:
+  # push: # Techniquement, les seuls push sur main sont via PR
+  #   branches:
+  #     - main 
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+      
+      
+      
+jobs:
+  doc:
+    # https://stackoverflow.com/questions/60710209/trigger-github-actions-only-when-pr-is-merged
+    if: github.event.pull_request.merged == true
+    name: "Création et déploiement de la documentation"
+    runs-on: ubuntu-latest # OS où s'exécute le job
+    steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v4
+      - name: "Set up JDK 21"
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: '21'  
+          cache: 'maven'
+      - name: "Generate the code documentation"
+        run: mvn -B javadoc::javadoc
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/reports

@@ -1,4 +1,4 @@
-name: Java CI with Maven - Test and package
+name: Création et déploiement de la documentation
  
 on:
   # push: # Techniquement, les seuls push sur main sont via PR
@@ -10,6 +10,9 @@ on:
     types:
       - closed
       
+
+permissions:
+  contents: write
       
       
 jobs:
@@ -33,4 +36,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/reports
+          publish_dir: ./target/reports/apidocs
